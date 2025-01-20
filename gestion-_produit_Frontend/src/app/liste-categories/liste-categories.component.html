@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+
+            <div class="col-sm-4 col-md-4 col-lg-4 mb-4"> 
+                <app-update-categorie  [categorie]="updatedCat"  
+                                       (categorieUpdated)= "categorieUpdated($event)"
+                                       [ajout]="ajout" >
+                                       
+                                    
+               </app-update-categorie>   
+          </div>
+        
+
+            <table class="table table-striped">
+                <thead>
+                    <tr> <th>Id</th><th>Nom Catégorie</th> </tr>
+                </thead>
+             
+             @for(cat of categories; track cat.idCat)
+               {
+                <tbody >
+                    <tr>
+                        <td>{{cat.idCat}}</td>
+                        <td>{{cat.nomCat}}</td>
+                        <td><a class="btn btn-success"  (click)="updateCat(cat)">Editer</a></td>
+                     </tr>
+                </tbody>
+               }
+            </table>
+        </div>
+    </div>
+</div>
